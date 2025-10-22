@@ -1,0 +1,50 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgb(207, 207, 207);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+div:first-child{
+    background-color: white;
+    border-bottom: 1px solid gray;
+    width: 100%;
+}
+nav{
+    padding: 10px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+}
+nav a{
+    color: gray;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    &:hover{
+        background-color: lightskyblue;
+        color: white;
+    }
+}
+nav button{
+    margin-left: auto;
+    background-color: white;
+    color: gray;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 4px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    &:hover{
+        background-color: rgb(207, 207, 207);
+        color: gray
+    }
+
+}
