@@ -64,3 +64,4 @@ Para obtener más información sobre el uso de Angular CLI, incluyendo referenci
 
 # Backend
 Si queremos saber que capacidades tiene el backend de este proyecto, podemos dirigirnos a su [swagger](https://agenda-api.somee.com/swagger/index.html)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d66949de-6753-4e22-b068-c54fe173233b/deploy-status)](https://app.netlify.com/projects/agendacontactosapps2025/deploys)
