@@ -3,8 +3,8 @@
     <span>{{contact().number}}</span>
     <span>{{contact().email}}</span>
     <span>-</span>
-    <span><button (click)= "openDeleteModal()">Borrar</button></span>
-    <a routerLink="['/contacts',contact().id,'edit']">Editar</a>
+    <span><button (click)= "openDeleteModal()" class="boton-borrar">Borrar</button></span>
+    <a routerLink="['/contacts',contact().id,'edit']" class="boton-editar">Editar</a>
     <span>
         @if (contact().isFavorite === true) {
             ⭐

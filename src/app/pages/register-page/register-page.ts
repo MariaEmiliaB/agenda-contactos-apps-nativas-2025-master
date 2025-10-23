@@ -1,23 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { UserService } from '../../services/userService';
+import { Spinner } from "../../spinner/spinner";
 
 @Component({
   selector: 'app-register-page',
-  imports: [RouterModule,FormsModule],
+  imports: [RouterModule, FormsModule, Spinner],
   templateUrl: './register-page.html',
   styleUrl: './register-page.scss'
 })
 export class RegisterPage {
 errorRegister=false;
+isLoading=false;
+userService= inject(UserService);
+router= inject(Router);
 
-  register(form:any){
-    console.log(form);
+  async register(form:any){
     this.errorRegister = false;
-    if(!form.email || !form.password || !form.password2 || form.password !== form.password2){
+    if(!form.value.email || 
+      !form.value.password || 
+      !form.value.password2 || 
+      form.value.password !== form.value.password2){
       this.errorRegister = true;
       return
     }
-
+    this.isLoading = true;
+    const res = await this.userService.register(form.value);
+    if(res.ok){
+      this.router.navigate(["/login"])
+    }
+    this.isLoading = false;
+    this.errorRegister = true;
   }
 }

@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Contact, NewContact } from '../interfaces/contact';
 import { AuthService } from './auth-service';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,8 +24,6 @@ export class ContactsService {
     const resJson: Contact[] = await res.json()
     this.contacts = resJson;
   }
-
-  /** Devuelve un contato en particular segun su ID */
   async getContactById(id: string | number) {
     const res = await fetch(this.URL_BASE + "/" + id,
       {
@@ -39,7 +38,6 @@ export class ContactsService {
     return resContact;
   }
 
-  /** Crea un contacto */
   async createContact(nuevoContacto:NewContact) {
     const res = await fetch(this.URL_BASE, 
       {
@@ -76,8 +74,6 @@ export class ContactsService {
   });
     return contactoEditado;
   }
-
-  /** Borra un contacto */
   async deleteContact(id: string | number) {
     const res = await fetch(this.URL_BASE + "/" + id,
       {

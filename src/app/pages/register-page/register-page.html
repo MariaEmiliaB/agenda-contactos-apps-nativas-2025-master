@@ -1,6 +1,6 @@
 <div id="container" class="card">
   <h1>Registrarse</h1>
-  <form #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+  <form #registerForm="ngForm" (ngSbmit)="register(registerForm.value)">
     <div>
       <label for="email">Correo electrónico</label>
       <input id="email" name="email" type="email" id="email" ngModel #email="ngModel" required="true" autocomplete="email">
@@ -22,7 +22,10 @@
         <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
       }
     </div>
-    <button>Iniciar sesión</button>
+    <a routerLink="/login"><button [disabled]="isLoading || registerForm.invalid">Iniciar sesión</button></a>
+    @if(isLoading){
+      <app-spinner></app-spinner>
+    }
     @if (errorRegister) {
       <p class="error">Error indeterminado, intente nuevamente.</p>
     } 

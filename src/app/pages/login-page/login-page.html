@@ -15,7 +15,7 @@
       <p class="error">Debe colocar una contraseña de al menos 4 caracteres.</p>
     } 
   </div>
-  <a routerLink="/contacts-page"><button [disabled]="isLoading || loginForm.invalid">Iniciar sesión</button></a>
+  <a routerLink="/"><button [disabled]="isLoading || loginForm.invalid">Iniciar sesión</button></a>
   @if(isLoading){
     <app-spinner></app-spinner>
   }

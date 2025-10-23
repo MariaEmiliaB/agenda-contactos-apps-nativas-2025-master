@@ -20,6 +20,12 @@
         border-bottom: 1px solid rgb(207, 207, 207);
         padding-bottom: 15px;
     }
+    .boton-contacto {
+        font-size: 10px;
+        border-radius: 50%;
+        border: 1px solid lightskyblue;
+        color: black;
+    }
     form{
         display: flex;
         flex-direction: column;

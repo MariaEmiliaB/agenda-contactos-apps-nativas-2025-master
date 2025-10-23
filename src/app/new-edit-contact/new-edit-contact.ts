@@ -1,12 +1,13 @@
-import { Component, ElementRef, inject, input, OnInit, viewChild } from '@angular/core';
-import { Form, FormGroup, FormsModule, NgControl, NgForm, NgModel } from '@angular/forms';
+import { Component, inject, input, OnInit, viewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Contact, NewContact } from '../interfaces/contact';
 import { ContactsService } from '../services/contacts-service';
 import { Router } from '@angular/router';
+import { Spinner } from "../spinner/spinner";
 
 @Component({
   selector: 'app-new-edit-contact',
-  imports: [FormsModule],
+  imports: [FormsModule, Spinner],
   templateUrl: './new-edit-contact.html',
   styleUrl: './new-edit-contact.scss'
 })
@@ -16,13 +17,12 @@ export class NewEditContact implements OnInit {
   errorEnBack = false;
    idContacto = input<number>();
   contactoOriginal:Contact|undefined = undefined;
-   form = viewChild<NgForm>('newContactForm');
+   form = viewChild<NgForm>('newContactForm'); 
    isLoading= false
   
   async ngOnInit() {
     if(this.idContacto()){
       this.contactoOriginal = await this.contactsService.getContactById(this.idContacto()!);
-      // Cambio los valores del formulario
       this.form()?.setValue({
         firstName: this.contactoOriginal!.firstName,
         lastName: this.contactoOriginal!.lastName,

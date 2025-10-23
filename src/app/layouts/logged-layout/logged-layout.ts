@@ -20,7 +20,7 @@ openLogoutModal(){
       cancelButtonText: "Cancelar",
       denyButtonText: `Cerrar sesión`
     }).then((result) => {
-      if (result.isDenied) { //Reviso que haya clickeado en el botón rojo.
+      if (result.isDenied) { 
         this.authService.logout();
       }
     });
