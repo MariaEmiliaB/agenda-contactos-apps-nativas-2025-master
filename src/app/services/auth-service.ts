@@ -8,6 +8,7 @@ export class AuthService {
   logged: boolean = false;
   router = inject(Router)
   token: null | string = localStorage.getItem("token")
+  static token: any;
   async login(loginData: LoginData) {
     const res = await fetch("https://agenda-api.somee.com/api/authentication/authenticate",
        {

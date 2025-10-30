@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../services/userService';
 import { Spinner } from "../../spinner/spinner";
@@ -16,7 +16,7 @@ isLoading=false;
 userService= inject(UserService);
 router= inject(Router);
 
-  async register(form:any){
+  async register(form:NgForm){
     this.errorRegister = false;
     if(!form.value.email || 
       !form.value.password || 
