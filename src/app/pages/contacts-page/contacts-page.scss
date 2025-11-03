@@ -9,18 +9,20 @@
 }
 .body{
     background-color: white;
+
 }
     span{
     padding: 20px;
     color: white;
     margin: 10px;
     font-size: 24px;
+    font-weight: 500;
     }
     .contacts-list {
     list-style: none;
     margin: 0;
     padding: 0;
-    border: 1px solid #d7e0ea;
+    border: 1px solid white;
     border-top: none;
     border-radius: 8px;
     overflow: hidden;
@@ -38,10 +40,20 @@
     .add-button{
     display: inline-block;
     text-decoration: none;
-    justify-content: end;
+    justify-content: center;
     border-radius: 20%;
-    border-color: deepskyblue;
+    border-color: white;
     background-color: transparent;
     color: deepskyblue;
-
+    font-size: 24px;
+    text-align: end;
+    margin: 10px;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    &:hover{
+        background-color: deepskyblue;
+        color: white;
     }
+}
