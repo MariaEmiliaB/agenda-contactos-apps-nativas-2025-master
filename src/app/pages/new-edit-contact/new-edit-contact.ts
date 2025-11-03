@@ -52,7 +52,9 @@ export class NewEditContact implements OnInit {
     let res
     this.isLoading = true;
     if(this.idContacto()){
-      res = await this.contactsService.editContact({...nuevoContacto,id:this.idContacto()!})
+      res = await this.contactsService.editContact({...nuevoContacto,
+      id:this.idContacto()!
+      });
     } else {
       res = await this.contactsService.createContact(nuevoContacto);
     }
@@ -61,7 +63,7 @@ export class NewEditContact implements OnInit {
       this.errorEnBack = true;
       return
     };
-    this.router.navigate(["/"]);
+    this.router.navigate(["/", res.id]);
   }
 
 }
