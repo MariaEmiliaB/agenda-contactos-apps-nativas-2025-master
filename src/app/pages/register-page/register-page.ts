@@ -21,6 +21,8 @@ router= inject(Router);
     if(!form.value.email || 
       !form.value.password || 
       !form.value.password2 || 
+      !form.value.firstName ||
+      !form.value.lastName ||
       form.value.password !== form.value.password2){
       this.errorRegister = true;
       return

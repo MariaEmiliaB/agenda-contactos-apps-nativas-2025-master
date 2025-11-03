@@ -1,9 +1,9 @@
 import { Component, inject, input, OnInit, viewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Contact, NewContact } from '../interfaces/contact';
-import { ContactsService } from '../services/contacts-service';
+import { Contact, NewContact } from '../../interfaces/contact';
+import { ContactsService } from '../../services/contacts-service';
 import { Router } from '@angular/router';
-import { Spinner } from "../spinner/spinner";
+import { Spinner } from "../../spinner/spinner";
 
 @Component({
   selector: 'app-new-edit-contact',
@@ -61,7 +61,7 @@ export class NewEditContact implements OnInit {
       this.errorEnBack = true;
       return
     };
-    this.router.navigate(["/contacts", res.id]);
+    this.router.navigate(["/"]);
   }
 
 }
