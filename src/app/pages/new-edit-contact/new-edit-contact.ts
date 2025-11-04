@@ -23,7 +23,7 @@ export class NewEditContact implements OnInit {
   async ngOnInit() {
     if(this.idContacto()){
       this.contactoOriginal = await this.contactsService.getContactById(this.idContacto()!);
-      this.form()?.setValue({
+         this.form()?.setValue({
         firstName: this.contactoOriginal!.firstName,
         lastName: this.contactoOriginal!.lastName,
         address: this.contactoOriginal!.address,
@@ -33,6 +33,7 @@ export class NewEditContact implements OnInit {
         company: this.contactoOriginal!.company,
         isFavourite: this.contactoOriginal!.isFavorite
       })
+     
     }
   }
 
@@ -53,7 +54,7 @@ export class NewEditContact implements OnInit {
     this.isLoading = true;
     if(this.idContacto()){
       res = await this.contactsService.editContact({...nuevoContacto,
-      id:this.idContacto()!
+      id:this.idContacto()!.toString()
       });
     } else {
       res = await this.contactsService.createContact(nuevoContacto);
@@ -63,7 +64,7 @@ export class NewEditContact implements OnInit {
       this.errorEnBack = true;
       return
     };
-    this.router.navigate(["/", res.id]);
+    this.router.navigate(["/"]);
   }
 
 }

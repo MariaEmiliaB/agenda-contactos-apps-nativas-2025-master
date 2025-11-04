@@ -8,12 +8,28 @@
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    display: flexbox;
+    transition: 0.3s;
+    &:hover{
+        background-color: darkred;
+    }
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .boton-editar{
-    background-color: blue;
+    background-color: deepskyblue;
     color: white;
+    text-decoration: none;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 15px;
+    display: flexbox;
+    transition: 0.3s;
+    &:hover{
+        background-color: lightskyblue;
+
+    }
 }

@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Contact, NewContact } from '../interfaces/contact';
 import { AuthService } from './auth-service';
 import { Router } from '@angular/router';
+import { NewEditContact } from '../pages/new-edit-contact/new-edit-contact';
 @Injectable({
   providedIn: 'root'
 })
@@ -34,7 +35,7 @@ export class ContactsService {
       }
     )
     if (!res.ok) return;
-    const resContact = await res.json();
+    const resContact: Contact= await res.json();
     return resContact;
   }
 
