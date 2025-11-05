@@ -23,8 +23,7 @@ export class NewEditContact implements OnInit {
   async ngOnInit() {
     if(this.idContacto()){
       this.contactoOriginal = await this.contactsService.getContactById(this.idContacto()!);
-      setTimeout(() =>
-         this.form()?.setValue({
+      this.form()?.setValue({
         firstName: this.contactoOriginal!.firstName,
         lastName: this.contactoOriginal!.lastName,
         address: this.contactoOriginal!.address,
@@ -33,9 +32,7 @@ export class NewEditContact implements OnInit {
         number: this.contactoOriginal!.number,
         company: this.contactoOriginal!.company,
         isFavorite: this.contactoOriginal!.isFavorite
-      })
-      );
-     
+      });
     }
   }
 
