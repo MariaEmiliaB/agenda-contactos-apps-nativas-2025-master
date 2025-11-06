@@ -1,7 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { Contact } from '../../interfaces/contact';
 import { ContactsService } from '../../services/contacts-service';
-import { RouterLink, RouterModule } from "@angular/router";
+import { Router, RouterLink, RouterModule } from "@angular/router";
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,6 +14,10 @@ export class ContactListItem {
   contact = input.required<Contact>()
   aleatorio = Math.random()
   contactsService = inject(ContactsService)
+  router= inject(Router)
+  goToDetails(){
+    this.router.navigate(['contacts',this.contact().id])
+  }
   openDeleteModal(){
     Swal.fire({
       title: "¿Desea borrar el contacto?",

@@ -1,10 +1,10 @@
-<li [class.favorite]="contact().isFavorite === true">
+<li [class.favorite]="contact().isFavorite === true" (click)="goToDetails()">
     <span>{{contact().firstName}} {{contact().lastName}}</span>
     <span>{{contact().number}}</span>
     <span>{{contact().email}}</span>
     <span>-</span>
     <span><button (click)= "openDeleteModal()" class="boton-borrar">Borrar</button></span>
-    <a [routerLink]="['contacts', contact().id, 'edit']" class="boton-editar">Editar</a>
+    <a [routerLink]="['contacts', contact().id, 'edit']" (click)="$event.stopPropagation()" class="boton-editar">Editar</a>
     <span>
         @if (contact().isFavorite === true) {
             ⭐

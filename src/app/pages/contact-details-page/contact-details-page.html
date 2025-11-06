@@ -1,12 +1,19 @@
 <div class="contact-details-card">
-  @if(cargandoContacto){
+  @if(!cargandoContacto){
     <p class="estado-mensaje">Cargando contacto...</p>
   } @else if(!contacto) {
     <p class="estado-mensaje">No se encontró el contacto</p>
   } @else {
     <h1>{{contacto!.firstName}} {{contacto!.lastName}}</h1>
-    <p>Email: {{contacto.email}}</p>
-    <p>Teléfono: {{contacto.number}}</p>
+    <ul>
+      <li>Email: {{contacto.email}}</li>
+      <li>Teléfono:{{contacto.number}}</li>
+      <li>Dirección:{{contacto.address}}</li>
+      <li>Compañía: {{contacto.company}}</li>
+      <li>URL Imagen: {{contacto.image}}</li>
+      <li>Favorito: @if (contacto.isFavorite) {Sí} 
+        @else {No}</li>
+    </ul>
 
     <div class="acciones-contacto"> 
       @if (contacto.isFavorite) {
